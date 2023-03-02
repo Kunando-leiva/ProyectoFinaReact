@@ -19,11 +19,12 @@ const Navbar = () => {
 
         <Link to="/">Home</Link>
         <Link to={`/category/men's clothing`}>men's clothing</Link>
-        <Link to={`/category/women's-clothing`}> Women's Clothing</Link>
+        <Link to={`/category/women's clothing`}> Women's Clothing</Link>
         <Link to={`/category/jewelery`}>Joyeria</Link>
         <Link to={`/category/electronics`}>electronics</Link>
+        <Link to={`/carrito `}>carrito de compras</Link>
 
-        <CartWidget/>
+        
     </Flex>
 
     

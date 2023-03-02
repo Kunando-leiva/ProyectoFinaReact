@@ -1,10 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import DetailProductItem from './DetailProductItem/DetailProductItem'
-import ProductList from './ProductListContainer'
-import ProductItem from './ProductItem/ProductItem'
 
-const Header = ({image}) => {
+
+const Header = () => {
   return (
    <header>
     <Link to="/" style={{color:"blue"}} >

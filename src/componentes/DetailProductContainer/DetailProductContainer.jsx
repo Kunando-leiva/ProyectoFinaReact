@@ -1,48 +1,34 @@
 import React, {useState, useEffect} from 'react';
 import { db } from "../../../db/firebase-config";
-import {collection, getDocs, doc} from 'firebase/firestore'
+import {collection, doc, getDoc} from 'firebase/firestore'
 import DetailProduct from '../DetailProductItem/DetailProductItem'
+import { useParams } from 'react-router-dom';
+import DetailProductItem from '../DetailProductItem/DetailProductItem';
 
 
 const DetailProductContainer = (props) => {
 
     const [detail, setDetail] = useState([]);
     const [loading, setLoading] = useState(true);
+    const {productId}=useParams();
     const productCollectionRef = collection(db, "product");
 
-    const getDetail = async () => {
-        const querySnapshot = await getDocs(productCollectionRef);
-        setDetail(querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
-        setLoading(false);
-    }
-    console.log(getDetail)
 
     const getSingleDetail = async (id) => {
-      const docRef = doc(productCollectionRef, id);
-      const querySnapshot = await getDocs(docRef);
-      setDetail(querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
+        if (detail) {
+      const docRef = doc(productCollectionRef, productId);
+      const querySnapshot = await getDoc(docRef);
+      setDetail({ ...querySnapshot.data(), id: querySnapshot.id })
       setLoading(false);
-  }
+        }
+    }
+  
 
     useEffect(() => {
-      const getMock = async() => {
-                  const mockData = await new Promise((resolve, reject) => {
-                      setTimeout(() => {
-                          resolve({
-                              title: 'producto mock',
-                              image: 'url de imagen',
-                              description: 'descripcion del producto',
-                              price: '10',
-                              category: 'muebles'
-                          });
-                      }, 2000);
-                  });
-                  setDetail(mockData);
-              }
-              getMock();
-              getDetail();
-            
-          }, []);
+      getSingleDetail()
+        },[productId]);
+
+        
                 
 
     if (loading) {
@@ -51,17 +37,19 @@ const DetailProductContainer = (props) => {
 
     return (
         <div>
-            {detail.map(product => (
-                <DetailProduct 
-                    key={product.id}
-                    title={product.title}
-                    image={product.image}
-                    description={product.description}
-                    price={product.price}
-                    category={product.category}
-                    id={product.id}
+           
+                <DetailProductItem 
+                    key={detail.id}
+                    id={detail.id}
+                    title={detail.title}
+                    image={detail.image}
+                    description={detail.description}
+                    price={detail.price}
+                    category={detail.category}
+                    
+                    test={detail}
                 />
-            ))}
+           
         </div>
     );
 

@@ -1,15 +1,17 @@
 import { Button, ButtonGroup, Card, CardBody, CardFooter, Center, Divider, Heading, Image, Stack, Text } from '@chakra-ui/react';
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
+import DetailProductContainer from '../DetailProductContainer/DetailProductContainer';
 
-const ProductItem = ({image, title, description, price, id, deleteProduct}) => {
+const ProductItem = ({image, title, description, price, id, productid,detail}) => {
   
   return (
   
     
-    <Link to={`/product/${id}`}>
     
-   <Card maxW="sm" key={id}>
+      <Link to={`/products/${id}`}>
+    
+   <Card maxW="sm" >
   <CardBody>
   
     <Image
@@ -20,9 +22,7 @@ const ProductItem = ({image, title, description, price, id, deleteProduct}) => {
 
     <Stack mt='6' spacing='3'>
       <Heading size='md'>{title}</Heading>
-      <Text>
-        {description}
-      </Text>
+     
       <Text color='blue.600' fontSize='2xl'>
         ${price}
       </Text>

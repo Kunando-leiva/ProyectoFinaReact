@@ -18,7 +18,7 @@ const CartWidget = () => {
         px="2"
         py="1"
       >
-        <Text fontSize="xs">3</Text>
+        <Text fontSize="xs">33</Text>
       </Box>
     </Box>
   )
