@@ -1,10 +1,15 @@
 import React from 'react';
 import { Icon, Box, Text } from "@chakra-ui/react";
+import TotalItem from '../Cart/totalItem';
+
 
 const CartWidget = () => {
   return (
     <Box position="relative" mr={10}>
-      <Icon name="shopping-cart" />
+     <Text fontSize="3xl" >🛒</Text>
+     
+      <Text>CARRITO</Text>
+      
       <Box
         as="span"
         bg="teal.400"
@@ -18,7 +23,7 @@ const CartWidget = () => {
         px="2"
         py="1"
       >
-        <Text fontSize="xs">33</Text>
+        <TotalItem/>
       </Box>
     </Box>
   )

@@ -3,13 +3,18 @@ import { collection, getDocs, deleteDoc, doc, query, where } from "firebase/fire
 import { useEffect, useState } from "react";
 import ProductList from "../ProductList/ProductList";
 import { useParams } from "react-router-dom";
+import "./ProductoContainer.css"
+
+
+
+import { Box, Button, SimpleGrid } from "@chakra-ui/react";
 
 const ProductContainer = () => {
 
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   const { categoryId } = useParams();
-  const [products, setProducts] = useState([]);
+ 
 
   const getproduct = async () => {
     const productCollectionRef =categoryId === undefined 
@@ -31,12 +36,22 @@ const ProductContainer = () => {
   }, [categoryId]);
   
 
+
   if (loading) {
     return <h3>Cargando...</h3>
   }
 
+  
   return (
-    <div> <ProductList products={product} />
+
+    <div className="ProductoContainerfondo">
+    <div className="ProductoContainer"> 
+       
+          <ProductList products={product} />
+     
+   
+    </div>
+    
     </div>
   );
 }

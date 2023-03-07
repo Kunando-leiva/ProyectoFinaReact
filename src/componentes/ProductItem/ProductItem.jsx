@@ -1,46 +1,66 @@
-import { Button, ButtonGroup, Card, CardBody, CardFooter, Center, Divider, Heading, Image, Stack, Text } from '@chakra-ui/react';
+import { Button, Card, CardBody, CardFooter, Center, Container, Divider, Heading, Image, SimpleGrid, Stack, Text } from '@chakra-ui/react';
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom';
-import DetailProductContainer from '../DetailProductContainer/DetailProductContainer';
+import { Link} from 'react-router-dom';
 
-const ProductItem = ({image, title, description, price, id, productid,detail}) => {
-  
+ 
+
+
+
+const ProductItem = ({image, title,  price, id }) =>{
+
   return (
-  
+
     
-    
-      <Link to={`/products/${id}`}>
-    
-   <Card maxW="sm" >
-  <CardBody>
-  
+   
+
+   <Card w="26rem"  m="3" border="1px" >
+   
+  <CardBody background="black" >
+
+  <Link to={`/products/${id}`}>
+    <Center>
     <Image
+   h="30rem"
+   w="80rem"
       src={image}
-      alt='Green double couch with wooden legs'
-      borderRadius='lg'
-    />
+      alt={title}
+      borderRadius='lg'/>
+    </Center>
+  </Link>
 
     <Stack mt='6' spacing='3'>
-      <Heading size='md'>{title}</Heading>
+      <Heading size='md'
+      h="5rem"
+      >{title}
+      </Heading>
      
-      <Text color='blue.600' fontSize='2xl'>
+    <Text color='blue.600' fontSize='3xl'>
         ${price}
-      </Text>
+    </Text>
     </Stack>
-  </CardBody>
-  <Divider />
-  <CardFooter>
-    <ButtonGroup spacing='2'>
-      <Button variant='solid' colorScheme='blue'>
-      
+    <CardFooter justifyContent="center">
+      <Link to={`/products/${id}`}>
+      <Button fontSize='2xl' variant='solid' colorScheme='blue' alignContent="center" >
+      Detalle del Producto
       </Button>
-      <Button variant='ghost' colorScheme='blue'>
-        Add to cart
-      </Button>
-    </ButtonGroup>
-  </CardFooter>
+      </Link>
+      </CardFooter>
+    
+</CardBody>
+ 
+<Center>
+  
+    
+    
+    
+    
+    
+  
+  </Center>
+
 </Card>
-</Link>
+
+
   );
 };
 

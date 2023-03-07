@@ -1,9 +1,14 @@
+
 import React from 'react'
 import ProductItem from '../ProductItem/ProductItem';
 
 const ProductList = ({products}) => {
+
+ 
   return (
-    <div>
+   
+    <div className='ProductoContainer'>
+       
       {products.map(product => (
         <ProductItem
           key={product.id}
@@ -14,8 +19,11 @@ const ProductList = ({products}) => {
           price={product.price}
           category={product.category}
         />
+
+
       ))}
     </div>
+    
   )
 }
 

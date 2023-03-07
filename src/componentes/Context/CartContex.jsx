@@ -1,61 +1,41 @@
-import React, { createContext, useEffect, useState } from "react";
-
-
+import React, { createContext, useContext, useEffect, useState } from "react";
+import CartContent from "../Cart/CartContent";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
 	const [cart, setCart] = useState([]);
 
-	useEffect(() => {
-		console.log(cart);
-	}, [cart]);
+		const AgregaralCarrito = ( detail) => {
+            const productrepeat = cart.find((item) => item.id === detail.id);
 
-	const addToCart = (product, quantity) => {
-		if (isInCart(product.id)) {
-			const productInCart = cart.find((it) => it.id === product.id);
-			productInCart.quantity = productInCart.quantity + quantity;
-			setCart([...cart]);
-		} else {
-			product.quantity = quantity;
-			setCart([...cart, product]);
+            if (productrepeat){
+                setCart(cart.map((item)=> (item.id === detail.id ? { ...detail, quanty:
+                productrepeat.quanty + 1} : item)))
+            }else{
+                setCart([...cart, detail]); 
+                console.log( detail)
+            }
 		}
-		AddToCartAlert(product.title, quantity);
-	};
+		
+		const clearCart = () => {
+			setCart([]);
+		};
 
-	const quantityProduct = () => {
-		return cart.reduce((totalQ, prod) => totalQ + prod.quantity, 0);
-	};
+		const saveLocal =() => {
+			localStorage.setItem("carrito", JSON.stringify(CartContent))
+		  }
 
-	const totalCart = () => {
-		return cart.reduce(
-			(totalP, prod) => totalP + prod.quantity * prod.price,
-			0
-		);
-	};
 
-	const isInCart = (id) => {
-		return cart.some((prod) => prod.id === id);
-	};
 
-	const removeProduct= (id) => {
-		setCart(cart.filter((product) => product.id !== id));
-	};
 
-	const clearCart = () => {
-		setCart([]);
-	};
-
-	return (
-		<CartContext.Provider
-			value={{
-				cart,
-				totalCart,
-				quantityProduct,
-				addToCart,
-				clearCart,
-				removeProduct,
-			}}>
-			{children}
+		return (
+		<CartContext.Provider value={{cart, setCart, AgregaralCarrito, clearCart, saveLocal
+		}}>{children}
 		</CartContext.Provider>
-	);
-};
+		);
+
+
+		
+
+	};
+	export default CartProvider;

@@ -1,15 +1,19 @@
+import { Box, SimpleGrid } from '@chakra-ui/react'
 import React from 'react'
-import { Link } from 'react-router-dom'
-import DetailProductItem from '../DetailProductItem/DetailProductItem'
+import Banner from '../Banner/Banner'
 import ProductContainer from '../ProductContainer/ProductContainer'
-import ProductItem from '../ProductItem/ProductItem'
 
-const Home = () => {
+
+const Home = ({greeting}) => {
     
   return (
     <div>
-      
-        <ProductContainer/>
+      <Banner/>
+
+    <div className='ProductoContainer'>
+      <ProductContainer/>
+    </div> 
+        
     </div>
   )
 }

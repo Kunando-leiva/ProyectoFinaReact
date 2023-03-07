@@ -1,43 +1,32 @@
 import React, { useState } from "react"
-import { Link, Route, Router, Routes } from "react-router-dom"
-import Header from "./componentes/Header"
+import { Link, Navigate, Route, Router, Routes } from "react-router-dom"
 import Navbar from "./componentes/navbar/navbar"
 import ProductContainer from "./componentes/ProductContainer/ProductContainer"
 import Home from "./componentes/Home/Home"
-import { Switch } from "@chakra-ui/react"
 import DetailProductContainer from "./componentes/DetailProductContainer/DetailProductContainer"
-import Cart from "./componentes/cart/cart"
+import CartContent from "./componentes/Cart/CartContent"
+
+
 
 
 function App() {
-  const [product, setProduct] = useState([]);
  
 
   return (
      
-    <div className="App">
-     
-      <Header/>
-      <Navbar/>
-      
-
-      
-      
+  <div className="App">
+  
+  <Navbar/>
+  
 <Routes>
- 
-  <Route exact path="/" element={<Home/>}/>
-  <Route exact path="/category/:categoryId" element={<ProductContainer/>}/>
-  <Route path="/products/:productId" element={<DetailProductContainer/>}></Route>
-  <Route path="/carrito" element={<Cart/>}/>
-
-
+  <Route exact path="/" element={<Home greeting="Bienvenido a nuestra tienda!"/>} />
+  <Route exact path="/category/:categoryId" element={<ProductContainer greeting="Encuentra los mejores productos aquí!" />}/>
+  <Route path="/products/:productId" element={<DetailProductContainer greeting="Revisa los detalles del producto aquí!"/>}/>
+  <Route path="/carrito" element={<CartContent/>}/>
+  <Route path="*" element={<Navigate to="/" />} />
 </Routes>
 
-  
-     
- 
-
-    </div>
+</div>
   )
 }
 
