@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardFooter, Center, Container, Divider, Heading, Image, SimpleGrid, Stack, Text } from '@chakra-ui/react';
+import { Button, Card, CardBody, CardFooter, Center, Heading, Image, Stack, Text } from '@chakra-ui/react';
 import React from 'react'
 import { Link} from 'react-router-dom';
 

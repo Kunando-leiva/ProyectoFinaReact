@@ -1,7 +1,7 @@
 import {useContext} from 'react'
 import { CartContext } from '../Context/CartContex';
 import CartElement from '../Cart/CartElement'
-import CartTotal from './cartTotal'
+import CartTotal from '../Cart/CartTotal'
 import { Button, Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import "./Cart.css"

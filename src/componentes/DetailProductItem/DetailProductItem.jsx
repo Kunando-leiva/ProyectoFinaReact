@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Button, ButtonGroup, Card, CardBody, CardFooter, Center, Divider, Heading, Image, Stack, Text } from '@chakra-ui/react';
+
+import { Card, CardBody, Divider, Heading, Image, Stack, Text } from '@chakra-ui/react';
 
 
 const DetailProduct = ({image, title, description, price, id,Product}) => {

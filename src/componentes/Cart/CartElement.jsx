@@ -1,9 +1,9 @@
 import { Badge, Box, Button, Card, CardBody, CardFooter, Center, Container, Flex, Heading, Image, Stack, Text } from '@chakra-ui/react';
 import {useContext} from 'react'
 import { CartContext } from '../Context/CartContex';
-import CartItemCounter from './cartItemCounter';
-import CartTotal from './cartTotal';
-import TotalItem from './totalItem';
+import CartItemCounter from '../Cart/CartItemCounter';
+import CartTotal from '../Cart/CartTotal';
+import TotalItem from '../Cart/TotalItem';
 
 
 
