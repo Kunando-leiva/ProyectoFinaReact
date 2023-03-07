@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { Link, Navigate, Route, Router, Routes } from "react-router-dom"
-import Navbar from "./componentes/navbar/navbar"
+import {  Navigate, Route, Routes } from "react-router-dom"
+import Navbar from "./componentes/navbar/Navbar"
 import ProductContainer from "./componentes/ProductContainer/ProductContainer"
 import Home from "./componentes/Home/Home"
 import DetailProductContainer from "./componentes/DetailProductContainer/DetailProductContainer"
