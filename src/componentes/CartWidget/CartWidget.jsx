@@ -1,6 +1,6 @@
 import React from 'react';
-import { Icon, Box, Text } from "@chakra-ui/react";
-import TotalItem from '../Cart/totalItem';
+import { Box, Text } from "@chakra-ui/react";
+import TotalItem from '../Cart/TotalItem';
 
 
 const CartWidget = () => {
